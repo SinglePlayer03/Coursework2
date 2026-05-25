@@ -273,11 +273,20 @@ void show_runtime_table() {
 
     for (int i = 0; i < task_count; i++) {
         printf(
-            "%-3s | Запущено =%3d | Виконано =%3d | Пропущено дедлайнів =%3d | Залишилось t =%3d | Наступний P =%3d | Останній дедлайн =%3d\n",
+            "%-3s | Запущено =%3d | Виконано =%3d | Пропущено дедлайнів =%3d\n",
             tasks[i].name,
             tasks[i].releases,
             tasks[i].completed,
-            tasks[i].missed_deadlines,
+            tasks[i].missed_deadlines
+        );
+    }
+    
+    print_line();
+    
+    for (int i = 0; i < task_count; i++) {
+        printf(
+            "%-3s | Залишилось t =%3d | Наступний P =%3d | Останній дедлайн =%3d\n",
+            tasks[i].name,
             tasks[i].remaining_time,
             tasks[i].next_release_time,
             tasks[i].absolute_deadline
